@@ -1,0 +1,48 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka  #注册中心的地址
+  instance:
+    prefer-ip-address: true
+    
+spring:
+  application:
+    name: item-service  #服务名称
+  datasource:   #数据源的配置
+    url: jdbc:mysql://192.168.220.130:3306/feign
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:  #redis的配置
+    host: 192.168.220.130
+    port: 6379
+    pool:
+      max-active: 20
+      max-wait: 15
+      min-idle: 10
+     
+server:  #服务端口号
+  port: 8080
+  
+mybatis: #配置mybatis
+  mapper-locations: /mapper/*.xml
+  type-aliases-package: com.ly.domain
+
+pagehelper:  #分页插件的配置
+  helper-dialect:  mysql
+  reasonable: true # -100 > 1
+
+# 配置swagger2 
+swagger2:  
+  title: item-service
+  base-package: com.ly.controller
+  description: item-service 服务的操作接口
+  email: ly@live.com
+  license: GPL
+  terms-of-service-url: https://nymph.github.com
+  license-url: https://www.gpl.com
+  url: https://nymph.github.com
+  user-name: ly
+  version: 1.0 
+  
+      
